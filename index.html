@@ -14,6 +14,8 @@
                rel="stylesheet"
           />
 
+          <script defer src="./index.js"></script>
+
           <!-- CSS STYLESHEET -->
           <link rel="stylesheet" href="./index.css" />
 
@@ -184,9 +186,12 @@
                                    role="menubar"
                               >
                                    <div class="store_tab-top">
-                                        <button
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
                                              role="menuitem"
                                              class="store_tab-top-btn-1"
+                                             aria-label="Visit Davii Collections on Shopify Admin"
                                         >
                                              <div class="store-name">
                                                   <div>DC</div>
@@ -208,11 +213,14 @@
                                                        stroke-linejoin="round"
                                                   />
                                              </svg>
-                                        </button>
+                                        </a>
 
-                                        <button
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
                                              role="menuitem"
                                              class="store_tab-top-btn-2"
+                                             aria-label="Visit your store (Davii Collections) on Shopify Admin"
                                         >
                                              <svg
                                                   xmlns="http://www.w3.org/2000/svg"
@@ -230,49 +238,1159 @@
                                              </svg>
 
                                              <span> All stores </span>
-                                        </button>
+                                        </a>
                                    </div>
 
                                    <div class="store_tab-middle">
-                                        <button role="menuitem">
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             role="menuitem"
+                                             aria-label="Visit help center"
+                                        >
                                              Help Center
-                                        </button>
-                                        <button role="menuitem">
+                                        </a>
+
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             aria-label="Visit changelog on Davii Collections on Shopify Admin"
+                                             role="menuitem"
+                                        >
                                              Changelog
-                                        </button>
-                                        <button role="menuitem">
+                                        </a>
+
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             role="menuitem"
+                                             aria-label="Visit community forums on Shopify"
+                                        >
                                              Community forums
-                                        </button>
-                                        <button role="menuitem">
+                                        </a>
+
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             role="menuitem"
+                                             aria-label=" Hire a Shopify Partner on Shopify"
+                                        >
                                              Hire a Shopify Partner
-                                        </button>
-                                        <button role="menuitem">
+                                        </a>
+
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             aria-label="Keyboard shortcuts"
+                                             role="menuitem"
+                                        >
                                              Keyboard shortcuts
-                                        </button>
+                                        </a>
                                    </div>
 
                                    <div class="store_tab-bottom">
-                                        <button role="menuitem">
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             aria-label="Personal details"
+                                             role="menuitem"
+                                        >
                                              <span>David Micheal</span>
                                              <span>
                                                   davidmicheal@gmail.com
                                              </span>
-                                        </button>
-                                        <button role="menuitem">
+                                        </a>
+
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             aria-label="Manage your account"
+                                             role="menuitem"
+                                        >
                                              Manage account
-                                        </button>
-                                        <button role="menuitem">Log out</button>
+                                        </a>
+                                        <a
+                                             href="https://admin.shopify.com"
+                                             target="_blank"
+                                             aria-label="Log out"
+                                             role="menuitem"
+                                        >
+                                             Log out
+                                        </a>
                                    </div>
                               </div>
                          </div>
                     </div>
                </nav>
 
-               <main style="height: 90vh; background-color: orangered">
-                    hello
+               <main class="main_wrapper">
+                    <div class="main_content">
+                         <div class="plan_container">
+                              <div class="plan_container_left">
+                                   <p>
+                                        Extend your trial for $1/month for 3
+                                        months on select plans.
+                                   </p>
+
+                                   <a href="https://shopify.com/pricing"
+                                        >Select a plan</a
+                                   >
+                              </div>
+
+                              <button class="plan_container_right dismiss_btn">
+                                   <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 20 20"
+                                        fill="none"
+                                   >
+                                        <path
+                                             d="M13.9697 15.0303C14.2626 15.3232 14.7374 15.3232 15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697L11.0607 10L15.0303 6.03033C15.3232 5.73744 15.3232 5.26256 15.0303 4.96967C14.7374 4.67678 14.2626 4.67678 13.9697 4.96967L10 8.93934L6.03033 4.96967C5.73744 4.67678 5.26256 4.67678 4.96967 4.96967C4.67678 5.26256 4.67678 5.73744 4.96967 6.03033L8.93934 10L4.96967 13.9697C4.67678 14.2626 4.67678 14.7374 4.96967 15.0303C5.26256 15.3232 5.73744 15.3232 6.03033 15.0303L10 11.0607L13.9697 15.0303Z"
+                                             fill="#E3E3E3"
+                                        />
+                                   </svg>
+                              </button>
+                         </div>
+
+                         <div class="guide">
+                              <div class="guide_header">
+                                   <div class="guide_header_content">
+                                        <h1>Setup guide</h1>
+
+                                        <p>
+                                             Use this personalized guide to get
+                                             your store up and running.
+                                        </p>
+
+                                        <div class="progress_state">
+                                             <span class="progress_start"
+                                                  >0</span
+                                             >/
+                                             <span class="progress_end">5</span>
+                                             <span>completed</span>
+
+                                             <div id="progress-bar">
+                                                  <div
+                                                       id="progress"
+                                                       style="width: 0%"
+                                                  ></div>
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <div class="guide_header_btn">
+                                        <button class="guide_header_btn_close">
+                                             <svg
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  width="20"
+                                                  height="20"
+                                                  viewBox="0 0 20 20"
+                                                  fill="none"
+                                             >
+                                                  <path
+                                                       fill-rule="evenodd"
+                                                       clip-rule="evenodd"
+                                                       d="M14.5303 12.2803C14.2374 12.5732 13.7626 12.5732 13.4697 12.2803L10 8.81066L6.53033 12.2803C6.23744 12.5732 5.76256 12.5732 5.46967 12.2803C5.17678 11.9874 5.17678 11.5126 5.46967 11.2197L9.46967 7.21967C9.76256 6.92678 10.2374 6.92678 10.5303 7.21967L14.5303 11.2197C14.8232 11.5126 14.8232 11.9874 14.5303 12.2803Z"
+                                                       fill="#4A4A4A"
+                                                  />
+                                             </svg>
+                                        </button>
+
+                                        <button
+                                             class="guide_header_btn_open hidden"
+                                        >
+                                             <svg
+                                                  width="41"
+                                                  height="40"
+                                                  viewBox="0 0 21 20"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                             >
+                                                  <path
+                                                       fill-rule="evenodd"
+                                                       clip-rule="evenodd"
+                                                       d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
+                                                       fill="#4A4A4A"
+                                                  />
+                                             </svg>
+                                        </button>
+                                   </div>
+                              </div>
+
+                              <div class="guide_lists">
+                                   <!-- FIRST CONTAINER -->
+                                   <div class="guide_list_container">
+                                        <section
+                                             data-label="0"
+                                             class="guide_list_cta"
+                                        >
+                                             <div class="icon_tab_state">
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="open_dash"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-dasharray="5 5"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="hover_solid hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       class="open_mark hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            fill="#303030"
+                                                       ></circle>
+                                                       <path
+                                                            d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                            fill="#fff"
+                                                       ></path>
+                                                  </svg>
+                                             </div>
+
+                                             <button
+                                                  id="cta"
+                                                  style="
+                                                       background: none;
+                                                       width: 100%;
+                                                       text-align: left;
+                                                       cursor: pointer;
+                                                       padding: 8px 0;
+                                                       font-size: 13px;
+                                                       font-weight: 500;
+                                                       color: var(
+                                                            --font-dark,
+                                                            #303030
+                                                       );
+                                                  "
+                                             >
+                                                  Customize your online store
+                                             </button>
+                                        </section>
+
+                                        <div
+                                             data-tab="0"
+                                             class="guide_list_tab customize_tab hidden"
+                                        >
+                                             <div class="guide_tab_left">
+                                                  <button class="tab_icon">
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="container_dash"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 stroke-dasharray="5 5"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="hover_solid hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="container_mark hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 fill="#303030"
+                                                            ></circle>
+                                                            <path
+                                                                 d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                                 fill="#fff"
+                                                            ></path>
+                                                       </svg>
+                                                  </button>
+
+                                                  <div
+                                                       class="guide_tab_left_content"
+                                                  >
+                                                       <h1>
+                                                            Customize your
+                                                            online store
+                                                       </h1>
+
+                                                       <p>
+                                                            Choose a theme and
+                                                            add your logo,
+                                                            colors, and images
+                                                            to reflect your
+                                                            brand.
+                                                            <a
+                                                                 href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
+                                                            >
+                                                                 Learn more</a
+                                                            >
+                                                       </p>
+
+                                                       <div>
+                                                            <button
+                                                                 class="guide_tab_left_content_btn"
+                                                            >
+                                                                 Customize theme
+                                                            </button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <div class="guide_tab_right">
+                                                  <img
+                                                       src="https://crushingit.tech/hackathon-assets/customise-store.png"
+                                                       alt="Customise Store"
+                                                  />
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- SECOND CONTAINER -->
+                                   <div class="guide_list_container">
+                                        <section
+                                             data-label="1"
+                                             class="guide_list_cta"
+                                        >
+                                             <div class="icon_tab_state">
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="open_dash"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-dasharray="5 5"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="hover_solid hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       class="open_mark hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            fill="#303030"
+                                                       ></circle>
+                                                       <path
+                                                            d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                            fill="#fff"
+                                                       ></path>
+                                                  </svg>
+                                             </div>
+
+                                             <button
+                                                  id="cta"
+                                                  style="
+                                                       background: none;
+                                                       width: 100%;
+                                                       text-align: left;
+                                                       cursor: pointer;
+                                                       padding: 8px 0;
+                                                       font-size: 13px;
+                                                       font-weight: 500;
+                                                       color: var(
+                                                            --font-dark,
+                                                            #303030
+                                                       );
+                                                  "
+                                             >
+                                                  Add your first product
+                                             </button>
+                                        </section>
+
+                                        <div
+                                             data-tab="1"
+                                             class="guide_list_tab customize_tab hidden"
+                                        >
+                                             <div class="guide_tab_left">
+                                                  <button class="tab_icon">
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="container_dash"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 stroke-dasharray="5 5"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="hover_solid hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="container_mark hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 fill="#303030"
+                                                            ></circle>
+                                                            <path
+                                                                 d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                                 fill="#fff"
+                                                            ></path>
+                                                       </svg>
+                                                  </button>
+
+                                                  <div
+                                                       class="guide_tab_left_content"
+                                                  >
+                                                       <h1>
+                                                            Add your first
+                                                            product
+                                                       </h1>
+
+                                                       <p>
+                                                            Write a description,
+                                                            add photos, and set
+                                                            pricing for the
+                                                            products you plan to
+                                                            sell.
+                                                            <a
+                                                                 href="https://help.shopify.com/en/manual/products/add-update-products"
+                                                            >
+                                                                 Learn more</a
+                                                            >
+                                                       </p>
+
+                                                       <div>
+                                                            <button
+                                                                 class="guide_tab_left_content_btn"
+                                                            >
+                                                                 Add product
+                                                            </button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <div class="guide_tab_right">
+                                                  <img
+                                                       src="https://crushingit.tech/hackathon-assets/product.png"
+                                                       alt="Product"
+                                                  />
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- THIRD CONTAINER -->
+                                   <div class="guide_list_container">
+                                        <section
+                                             data-label="2"
+                                             class="guide_list_cta"
+                                        >
+                                             <div class="icon_tab_state">
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="open_dash"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-dasharray="5 5"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="hover_solid hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       class="open_mark hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            fill="#303030"
+                                                       ></circle>
+                                                       <path
+                                                            d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                            fill="#fff"
+                                                       ></path>
+                                                  </svg>
+                                             </div>
+
+                                             <button
+                                                  id="cta"
+                                                  style="
+                                                       background: none;
+                                                       width: 100%;
+                                                       text-align: left;
+                                                       cursor: pointer;
+                                                       padding: 8px 0;
+                                                       font-size: 13px;
+                                                       font-weight: 500;
+                                                       color: var(
+                                                            --font-dark,
+                                                            #303030
+                                                       );
+                                                  "
+                                             >
+                                                  Add a custom domain
+                                             </button>
+                                        </section>
+
+                                        <div
+                                             data-tab="2"
+                                             class="guide_list_tab customize_tab hidden"
+                                        >
+                                             <div class="guide_tab_left">
+                                                  <button class="tab_icon">
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="container_dash"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 stroke-dasharray="5 5"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="hover_solid hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="container_mark hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 fill="#303030"
+                                                            ></circle>
+                                                            <path
+                                                                 d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                                 fill="#fff"
+                                                            ></path>
+                                                       </svg>
+                                                  </button>
+
+                                                  <div
+                                                       class="guide_tab_left_content"
+                                                  >
+                                                       <h1>
+                                                            Add a custom domain
+                                                       </h1>
+
+                                                       <p>
+                                                            Your current domain
+                                                            is
+                                                            222219.myshopify.com
+                                                            but you can add a
+                                                            custom domain to
+                                                            help customers find
+                                                            your online store.
+                                                            <a
+                                                                 href="https://help.shopify.com/en/manual/domains"
+                                                            >
+                                                                 Learn more</a
+                                                            >
+                                                       </p>
+
+                                                       <div>
+                                                            <button
+                                                                 class="guide_tab_left_content_btn"
+                                                            >
+                                                                 Add domain
+                                                            </button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <div class="guide_tab_right">
+                                                  <img
+                                                       src="https://crushingit.tech/hackathon-assets/website.png"
+                                                       alt="Website"
+                                                  />
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- FOURTH CONTAINER -->
+                                   <div class="guide_list_container">
+                                        <section
+                                             data-label="3"
+                                             class="guide_list_cta"
+                                        >
+                                             <div class="icon_tab_state">
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="open_dash"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-dasharray="5 5"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="hover_solid hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       class="open_mark hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            fill="#303030"
+                                                       ></circle>
+                                                       <path
+                                                            d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                            fill="#fff"
+                                                       ></path>
+                                                  </svg>
+                                             </div>
+
+                                             <button
+                                                  id="cta"
+                                                  style="
+                                                       background: none;
+                                                       width: 100%;
+                                                       text-align: left;
+                                                       cursor: pointer;
+                                                       padding: 8px 0;
+                                                       font-size: 13px;
+                                                       font-weight: 500;
+                                                       color: var(
+                                                            --font-dark,
+                                                            #303030
+                                                       );
+                                                  "
+                                             >
+                                                  Name your store
+                                             </button>
+                                        </section>
+
+                                        <div
+                                             data-tab="3"
+                                             class="guide_list_tab customize_tab hidden"
+                                        >
+                                             <div class="guide_tab_left">
+                                                  <button class="tab_icon">
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="container_dash"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 stroke-dasharray="5 5"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="hover_solid hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="container_mark hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 fill="#303030"
+                                                            ></circle>
+                                                            <path
+                                                                 d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                                 fill="#fff"
+                                                            ></path>
+                                                       </svg>
+                                                  </button>
+
+                                                  <div
+                                                       class="guide_tab_left_content"
+                                                  >
+                                                       <h1>Name your store</h1>
+
+                                                       <p>
+                                                            Your temporary store
+                                                            name is currently
+                                                            Davii collections.
+                                                            The store name
+                                                            appears in your
+                                                            admin and your
+                                                            online store.
+                                                            <a
+                                                                 href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+                                                            >
+                                                                 Learn more</a
+                                                            >
+                                                       </p>
+
+                                                       <div>
+                                                            <button
+                                                                 class="guide_tab_left_content_btn"
+                                                            >
+                                                                 Name store
+                                                            </button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <div class="guide_tab_right">
+                                                  <img
+                                                       src="https://crushingit.tech/hackathon-assets/name-store.png"
+                                                       alt="Name Store"
+                                                  />
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- FIFTH CONTAINER -->
+                                   <div class="guide_list_container">
+                                        <section
+                                             data-label="4"
+                                             class="guide_list_cta"
+                                        >
+                                             <div class="icon_tab_state">
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="open_dash"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-dasharray="5 5"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       class="hover_solid hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="#8A8A8A"
+                                                            stroke-width="2.08333"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                       />
+                                                  </svg>
+
+                                                  <svg
+                                                       width="24"
+                                                       height="24"
+                                                       viewBox="0 0 24 24"
+                                                       fill="none"
+                                                       xmlns="http://www.w3.org/2000/svg"
+                                                       class="open_mark hidden"
+                                                  >
+                                                       <circle
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            fill="#303030"
+                                                       ></circle>
+                                                       <path
+                                                            d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                            fill="#fff"
+                                                       ></path>
+                                                  </svg>
+                                             </div>
+
+                                             <button
+                                                  id="cta"
+                                                  style="
+                                                       background: none;
+                                                       width: 100%;
+                                                       text-align: left;
+                                                       cursor: pointer;
+                                                       padding: 8px 0;
+                                                       font-size: 13px;
+                                                       font-weight: 500;
+                                                       color: var(
+                                                            --font-dark,
+                                                            #303030
+                                                       );
+                                                  "
+                                             >
+                                                  Set up a payment provider
+                                             </button>
+                                        </section>
+
+                                        <div
+                                             data-tab="4"
+                                             class="guide_list_tab customize_tab hidden"
+                                        >
+                                             <div class="guide_tab_left">
+                                                  <button class="tab_icon">
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="container_dash"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                                 stroke-dasharray="5 5"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            class="hover_solid hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 stroke="#8A8A8A"
+                                                                 stroke-width="2.08333"
+                                                                 stroke-linecap="round"
+                                                                 stroke-linejoin="round"
+                                                            />
+                                                       </svg>
+
+                                                       <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="container_mark hidden"
+                                                       >
+                                                            <circle
+                                                                 cx="12"
+                                                                 cy="12"
+                                                                 r="10"
+                                                                 fill="#303030"
+                                                            ></circle>
+                                                            <path
+                                                                 d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                                                                 fill="#fff"
+                                                            ></path>
+                                                       </svg>
+                                                  </button>
+
+                                                  <div
+                                                       class="guide_tab_left_content"
+                                                  >
+                                                       <h1>
+                                                            Set up a payment
+                                                            provider
+                                                       </h1>
+
+                                                       <p>
+                                                            Choose a payment
+                                                            provider to start
+                                                            accepting payments.
+                                                            You’ll need to
+                                                            create an account
+                                                            with the payment
+                                                            provider and set it
+                                                            up with your Shopify
+                                                            store.
+                                                            <a
+                                                                 href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+                                                            >
+                                                                 Learn more</a
+                                                            >
+                                                       </p>
+
+                                                       <div>
+                                                            <button
+                                                                 class="guide_tab_left_content_btn"
+                                                            >
+                                                                 Set up payment
+                                                            </button>
+                                                       </div>
+                                                  </div>
+                                             </div>
+
+                                             <div class="guide_tab_right">
+                                                  <img
+                                                       src="https://crushingit.tech/hackathon-assets/payment.png"
+                                                       alt="Payment"
+                                                  />
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
                </main>
           </div>
-
-          <script src="./index.js"></script>
      </body>
 </html>

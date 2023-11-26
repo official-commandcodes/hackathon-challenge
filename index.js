@@ -11,6 +11,16 @@ function app() {
      const menuContainer = document.querySelector('.store_tab');
      const bigContainer = document.querySelector('.onboard_container');
      const svgFocus = document.querySelector('.alerts_component_btn_svg');
+     const dismissButton = document.querySelector('.dismiss_btn');
+     const trialContainer = document.querySelector('.plan_container');
+     const toggleArrowButtonOpen = document.querySelector(
+          '.guide_header_btn_open'
+     );
+     const toggleArrowButtonClose = document.querySelector(
+          '.guide_header_btn_close'
+     );
+     const cardContainer = document.querySelector('.guide_lists');
+
      let currentFocusItem = 0;
 
      function addState(component, className) {
@@ -241,6 +251,348 @@ function app() {
      svgFocus.addEventListener('focus', function (e) {
           return;
      });
+
+     /*
+      * Main content implementation
+      */
+
+     //REMOVE TRIAL
+     function handleDismissTrial() {
+          addState(trialContainer, 'hidden');
+     }
+
+     dismissButton.addEventListener('click', handleDismissTrial);
+
+     // ARROW UP & ARROW DOWN TOGGLE
+     function handleCardClose() {
+          // add & hid 'hidden' class for both buttons respectively
+          addState(toggleArrowButtonClose, 'hidden');
+          removeState(toggleArrowButtonOpen, 'hidden');
+
+          // add 'hidden' to card container
+          addState(cardContainer, 'hidden');
+     }
+
+     function handleCardOpen() {
+          // hid & add 'hidden' class for both buttons respectively
+          removeState(toggleArrowButtonClose, 'hidden');
+          addState(toggleArrowButtonOpen, 'hidden');
+
+          // remove 'hidden' to card container
+          removeState(cardContainer, 'hidden');
+     }
+
+     toggleArrowButtonOpen.addEventListener('click', handleCardOpen);
+     toggleArrowButtonClose.addEventListener('click', handleCardClose);
+
+     /**
+      *
+      * MAIN CONTAJNER
+      *
+      *
+      */
+
+     const tabBtns = document.querySelectorAll('#cta');
+     const unCompleteBtns = document.querySelectorAll('.open_dash');
+     const completeBtns = document.querySelectorAll('.open_mark');
+
+     const containerDash = document.querySelectorAll('.container_dash');
+     const containerMark = document.querySelectorAll('.container_mark');
+
+     const progressStart = document.querySelector('.progress_start');
+     const progressEnd = document.querySelector('.progress_end');
+     const progressBar = document.querySelector('#progress');
+
+     let currentTab = 0;
+     let checkedTabs = [];
+
+     progressEnd.textContent = tabBtns.length;
+
+     function openTab(tab) {
+          const nextTab = document.querySelector(`[data-tab="${tab}"]`);
+          const nextLabel = document.querySelector(`[data-label="${tab}"]`);
+
+          // remove hidden class on tab & add hidden class to label
+          addState(nextLabel, 'hidden');
+          removeState(nextTab, 'hidden');
+     }
+     openTab(currentTab);
+
+     function closeTab(tab) {
+          const previousTab = document.querySelector(`[data-tab="${tab}"]`);
+          const previousLabel = document.querySelector(`[data-label="${tab}"]`);
+
+          // remove hidden class on tab & add hidden class to label
+          addState(previousTab, 'hidden');
+          removeState(previousLabel, 'hidden');
+     }
+
+     function handleOpenContainer(e) {
+          // clicking on one of the five onboarding steps
+          const closestEl = e.target.closest('.guide_list_cta');
+          const btnDataset = closestEl.dataset.label;
+
+          const parentEl = document.querySelector(`[data-tab="${btnDataset}"]`);
+
+          // show parent
+          removeState(parentEl, 'hidden');
+
+          // hide child parent
+          addState(closestEl, 'hidden');
+
+          // close previouse tab
+          closeTab(currentTab);
+
+          if (currentTab === 4) {
+               return (currentTab = 0);
+          }
+
+          currentTab = currentTab + 1;
+     }
+
+     function executeProgress() {
+          // update number completed
+          progressStart.textContent = checkedTabs.length;
+
+          // update progress bar
+          const percentageWidth = Math.min(checkedTabs.length * 20, 100);
+
+          progressBar.style.width = `${percentageWidth}%`;
+     }
+
+     function handleUnCompleted(e) {
+          console.log('Hello');
+          const itemCompleted =
+               e.target.closest('.guide_list_cta').dataset.label;
+          const parentEl = e.target.closest('.icon_tab_state');
+
+          const dash_icon = parentEl.querySelector('.open_dash');
+          const mark_icon = parentEl.querySelector('.open_mark');
+          const hover_icon = parentEl.querySelector('.hover_solid');
+          const container = document.querySelector(
+               `[data-tab="${itemCompleted}"]`
+          );
+          const container_dash = container.querySelector('.container_dash');
+          const container_mark = container.querySelector('.container_mark');
+
+          // update container buttons
+          addState(container_dash, 'hidden');
+          removeState(container_mark, 'hidden');
+
+          // update
+          addState(dash_icon, 'hidden');
+          addState(hover_icon, 'hidden');
+          removeState(mark_icon, 'hidden');
+          checkedTabs.push(itemCompleted);
+
+          // open the tab with mark state on it
+          closeTab(currentTab);
+
+          currentTab = itemCompleted;
+
+          openTab(currentTab);
+
+          // update progress
+          executeProgress();
+     }
+
+     function handleComplete(e) {
+          const itemCompleted =
+               e.target.closest('.guide_list_cta').dataset.label;
+          const parentEl = e.target.closest('.icon_tab_state');
+          const dash_icon = parentEl.querySelector('.open_dash');
+          const mark_icon = parentEl.querySelector('.open_mark');
+          const container = document.querySelector(
+               `[data-tab="${itemCompleted}"]`
+          );
+          const container_dash = container.querySelector('.container_dash');
+          const container_mark = container.querySelector('.container_mark');
+
+          // update container buttons
+          removeState(container_dash, 'hidden');
+          addState(container_mark, 'hidden');
+
+          // update
+          removeState(dash_icon, 'hidden');
+          addState(mark_icon, 'hidden');
+
+          const newCheckedTab = checkedTabs.filter(
+               (tab) => tab !== itemCompleted
+          );
+          checkedTabs = newCheckedTab;
+          // open the tab with mark state on it
+          closeTab(currentTab);
+
+          currentTab = itemCompleted;
+
+          openTab(currentTab);
+
+          // update progress
+          executeProgress();
+     }
+
+     function handleContainerDash(e) {
+          const itemCompleted = e.target.closest('.guide_list_tab').dataset.tab;
+          const parentEl = e.target.closest('.tab_icon');
+
+          const dash_icon = parentEl.querySelector('.container_dash');
+          const mark_icon = parentEl.querySelector('.container_mark');
+          const label = document.querySelector(
+               `[data-label="${itemCompleted}"]`
+          );
+          const open_dash = label.querySelector('.open_dash');
+          const open_mark = label.querySelector('.open_mark');
+          const open_hover = label.querySelector('.hover_solid');
+
+          // update container buttons
+          addState(open_dash, 'hidden');
+          addState(open_hover, 'hidden');
+          removeState(open_mark, 'hidden');
+
+          // update
+          addState(dash_icon, 'hidden');
+          removeState(mark_icon, 'hidden');
+          checkedTabs.push(itemCompleted);
+
+          // open the tab with mark state on it
+          closeTab(currentTab);
+
+          if (currentTab === '4') {
+               // update progress
+               executeProgress();
+               openTab(4);
+               return;
+          }
+
+          currentTab = `${Number(itemCompleted) + 1}`;
+
+          openTab(currentTab);
+
+          // update progress
+          executeProgress();
+     }
+
+     function handleMarkContainer(e) {
+          console.log('Hello');
+
+          const itemCompleted = e.target.closest('.guide_list_tab').dataset.tab;
+          const parentEl = e.target.closest('.tab_icon');
+
+          const dash_icon = parentEl.querySelector('.container_dash');
+          const mark_icon = parentEl.querySelector('.container_mark');
+          const label = document.querySelector(
+               `[data-label="${itemCompleted}"]`
+          );
+          const open_dash = label.querySelector('.open_dash');
+          const open_mark = label.querySelector('.open_mark');
+
+          // update container buttons
+          removeState(open_dash, 'hidden');
+          addState(open_mark, 'hidden');
+
+          // update
+          removeState(dash_icon, 'hidden');
+          addState(mark_icon, 'hidden');
+
+          const newCheckedTab = checkedTabs.filter(
+               (tab) => tab !== itemCompleted
+          );
+
+          checkedTabs = newCheckedTab;
+
+          closeTab(itemCompleted);
+
+          if (currentTab === '4') {
+               // update progress
+               executeProgress();
+               openTab(4);
+               return;
+          }
+
+          currentTab = `${Number(itemCompleted) + 1}`;
+
+          openTab(currentTab);
+
+          // update progress
+          executeProgress();
+     }
+
+     // function handleMouseEnter(e) {
+     //      const closeContainer = e.target.closest('.tab_icon');
+     //      const tempBtn = closeContainer.querySelector('.hover_solid');
+
+     //      const staticBtn = closeContainer.querySelector('.container_dash');
+
+     //      removeState(tempBtn, 'hidden');
+     //      addState(staticBtn, 'hidden');
+     // }
+
+     // function handleMouseLeave(e) {
+     //      const closeContainer = e.target.closest('.tab_icon');
+     //      const tempBtn = closeContainer.querySelector('.hover_solid');
+
+     //      const staticBtn = closeContainer.querySelector('.container_dash');
+
+     //      addState(tempBtn, 'hidden');
+     //      removeState(staticBtn, 'hidden');
+     // }
+
+     // function handleUncompleteEnter(e) {
+     //      const closeContainer = e.target.closest('.icon_tab_state');
+     //      const tempBtn = closeContainer.querySelector('.hover_solid');
+
+     //      const staticBtn = closeContainer.querySelector('.open_dash');
+
+     //      removeState(tempBtn, 'hidden');
+     //      addState(staticBtn, 'hidden');
+     // }
+
+     // function handleUncompleteLeave(e) {
+     //      const closeContainer = e.target.closest('.icon_tab_state');
+     //      const tempBtn = closeContainer.querySelector('.hover_solid');
+
+     //      const staticBtn = closeContainer.querySelector('.open_dash');
+
+     //      addState(tempBtn, 'hidden');
+     //      removeState(staticBtn, 'hidden');
+     // }
+
+     // OPEN CONTAINER
+     tabBtns.forEach((btn) => {
+          btn.addEventListener('click', handleOpenContainer);
+     });
+
+     // COMPLETE STEP
+     unCompleteBtns.forEach((btn) =>
+          btn.addEventListener('click', handleUnCompleted)
+     );
+
+     // UNCOMPLETE STEP
+     completeBtns.forEach((btn) =>
+          btn.addEventListener('click', handleComplete)
+     );
+
+     // CONTAINER DASH
+     containerDash.forEach((btn) => {
+          btn.addEventListener('click', handleContainerDash);
+     });
+
+     // CONTAINER MARK
+     containerMark.forEach((btn) => {
+          btn.addEventListener('click', handleMarkContainer);
+     });
+
+     //      // CONTAINER DASH
+     //      containerDash.forEach((btn) => {
+     //           btn.addEventListener('mouseenter', handleMouseEnter);
+     //           btn.addEventListener('mouseleave', handleMouseLeave);
+     //      });
+
+     //      // // CONTAINER DASH
+     //      unCompleteBtns.forEach((btn) => {
+     //           btn.addEventListener('mouseover', handleUncompleteEnter);
+     //           btn.addEventListener('mouseleave', handleUncompleteLeave);
+     //      });
 }
 
 app();
