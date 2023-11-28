@@ -764,6 +764,11 @@ const app = function () {
                addState(e.target, 'large_button_focus');
           })
      );
+     tabLargeButtons.forEach((btn) =>
+          btn.addEventListener('blur', function (e) {
+               removeState(e.target, 'large_button_focus');
+          })
+     );
 };
 
 app();
