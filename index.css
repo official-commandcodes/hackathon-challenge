@@ -15,13 +15,13 @@ body {
 :focus {
      outline: 2px solid #005bd3;
      outline-offset: 2px;
-     border-radius: 8px;
+     border-radius: 3px;
 }
 
 .mark_done_focus:focus-visible {
      outline: 2px solid #005bd3;
      outline-offset: 2px;
-     border-radius: 8px;
+     border-radius: 3px;
 }
 
 .rotate {
@@ -65,15 +65,6 @@ body {
 .completed {
      animation: completedAnimation 300ms linear;
 }
-
-/* .container_mark,
-.open_mark {
-    
-} */
-
-/* .container_rotate {
-     animation: rotateAnimation 300ms linear;
-} */
 
 .onboard_container {
      height: 100vh;
