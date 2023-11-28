@@ -25,7 +25,7 @@ body {
 }
 
 .rotate {
-     animation: rotateAnimation 700ms linear infinite;
+     animation: rotateAnimation 300ms linear infinite;
 }
 
 @keyframes rotateAnimation {
@@ -61,6 +61,19 @@ body {
           opacity: 1;
      }
 }
+
+.completed {
+     animation: completedAnimation 300ms linear;
+}
+
+/* .container_mark,
+.open_mark {
+    
+} */
+
+/* .container_rotate {
+     animation: rotateAnimation 300ms linear;
+} */
 
 .onboard_container {
      height: 100vh;
@@ -642,15 +655,6 @@ body {
      transition: all 0.1s ease-in-out;
      border-radius: 2px;
      outline-offset: 1px;
-}
-
-.container_mark,
-.open_mark {
-     animation: completedAnimation 300ms linear;
-}
-
-.container_rotate {
-     animation: rotateAnimation 300ms linear;
 }
 
 .guide_list_tab {
