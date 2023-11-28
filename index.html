@@ -102,7 +102,7 @@
                     </a>
 
                     <!-- SEARCH COMPONENT -->
-                    <form class="search_component">
+                    <form class="search_component" role="search">
                          <svg
                               role="img"
                               aria-label="Search Icon"
@@ -125,7 +125,8 @@
                               placeholder="Search"
                               class="search_component-input"
                               tabindex="2"
-                              role="search"
+                              aria-label="Search"
+                              aria-autocomplete="list"
                          />
                     </form>
 
@@ -508,7 +509,10 @@
                                              data-label="0"
                                              class="guide_list_cta"
                                         >
-                                             <div class="icon_tab_state">
+                                             <button
+                                                  class="icon_tab_state"
+                                                  style="background: none"
+                                             >
                                                   <svg
                                                        xmlns="http://www.w3.org/2000/svg"
                                                        width="24"
@@ -604,7 +608,7 @@
                                                             fill="#fff"
                                                        ></path>
                                                   </svg>
-                                             </div>
+                                             </button>
 
                                              <button
                                                   id="cta"

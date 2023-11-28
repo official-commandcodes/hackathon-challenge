@@ -243,8 +243,8 @@ svgFocus.addEventListener('focus', function (e) {
 //REMOVE TRIAL
 function handleDismissTrial() {
      addState(trialContainer, 'hidden');
+     document.querySelector('.guide_header_btn_close').focus();
 }
-
 dismissButton.addEventListener('click', handleDismissTrial);
 
 // ARROW UP & ARROW DOWN TOGGLE
@@ -331,15 +331,17 @@ const progressBar = document.querySelector('#progress');
 const tabLargeButtons = document.querySelectorAll(
      '.guide_tab_left_content_btn_1'
 );
+const labelBtn = document.querySelectorAll('.icon_tab_state');
 
 let currentTab = 0;
 let checkedTabs = [];
-const IS_LOADING = 700;
+const IS_LOADING = 1000;
 const CLOSE_AND_OPENING_TAB = 300;
 progressEnd.textContent = labelButtons.length;
 
 // HELPER FUNCTIONS
 function openTab(tab) {
+     console.log(tab);
      const nextTab = document.querySelector(`[data-tab="${tab}"]`);
      const nextLabel = document.querySelector(`[data-label="${tab}"]`);
 
@@ -359,13 +361,10 @@ function closeTab(tab) {
 }
 
 // OPEN CLICKED TAB AND CLOSING PREVIOUS ONE
-function handleOpenClickedLabel(e) {
+function handleLabelClickedOpen(e) {
      const dataset = e.target.closest('.guide_list_cta').dataset.label;
      const labelContainer = e.target.closest('.guide_list_cta');
      const targetTab = document.querySelector(`[data-tab="${dataset}"]`);
-     // const btnToBeFocused = document
-     //      .querySelector(`[data-tab="${dataset}"]`)
-     //      .querySelector('button');
 
      // show parent
      removeState(targetTab, 'hidden');
@@ -377,9 +376,17 @@ function handleOpenClickedLabel(e) {
      closeTab(currentTab);
 
      currentTab = Number(dataset);
+
+     setTimeout(() => {
+          const actionSelectedContainerButton = document
+               .querySelector(`[data-tab="${dataset}"]`)
+               .querySelector('.mark_done');
+
+          actionSelectedContainerButton.focus();
+     }, 500);
 }
 labelButtons.forEach((btn) => {
-     btn.addEventListener('click', handleOpenClickedLabel);
+     btn.addEventListener('click', handleLabelClickedOpen);
 });
 
 // UPDATE PROGRESS STATE
@@ -394,20 +401,18 @@ function executeProgress() {
 }
 
 // MOUSE ENTER & LEAVE LABEL BUTTON
-normalIcon.forEach((btn) => {
-     btn.addEventListener('mouseenter', handleMouseOverLabelButton);
+labelBtn.forEach((btn) => {
+     btn.addEventListener('mouseenter', handleMouseEnterLabelButton);
      btn.addEventListener('mouseleave', handleMouseLeaveLabelButton);
 });
-function handleMouseOverLabelButton(e) {
+function handleMouseEnterLabelButton(e) {
      const tempBtn = e.target.querySelector('.open_hover');
-
      const staticBtn = e.target.querySelector('.open_dash');
-
+     const hoverBtn = e.target.querySelector('.open_hover');
      const markBtn = e.target.querySelector('.open_mark');
 
      if (!markBtn.classList.contains('hidden')) {
-          addState(tempBtn, 'hidden');
-          addState(staticBtn, 'hidden');
+          addState(hoverBtn, 'hidden');
           return;
      }
 
@@ -416,12 +421,16 @@ function handleMouseOverLabelButton(e) {
 }
 function handleMouseLeaveLabelButton(e) {
      const tempBtn = e.target.querySelector('.open_hover');
-
      const staticBtn = e.target.querySelector('.open_dash');
+     const rotateBtn = e.target.querySelector('.open_rotate');
      const markBtn = e.target.querySelector('.open_mark');
 
+     if (!rotateBtn.classList.contains('hidden')) {
+          addState(staticBtn, 'hidden');
+          return;
+     }
+
      if (!markBtn.classList.contains('hidden')) {
-          addState(tempBtn, 'hidden');
           addState(staticBtn, 'hidden');
           return;
      }
@@ -431,18 +440,16 @@ function handleMouseLeaveLabelButton(e) {
 }
 
 // MOUSE OVER CONTAINER BUTTONS
-boxIcon.forEach((btn) => {
-     btn.addEventListener('mouseenter', handleMouseOverBoxButton);
+markAsDoneContainerButton.forEach((btn) => {
+     btn.addEventListener('mouseenter', handleMouseEnterBoxButton);
      btn.addEventListener('mouseleave', handleMouseLeaveBoxButton);
 });
-function handleMouseOverBoxButton(e) {
+function handleMouseEnterBoxButton(e) {
      const tempBtn = e.target.querySelector('.container_hover');
-
      const staticBtn = e.target.querySelector('.container_dash');
      const markBtn = e.target.querySelector('.container_mark');
 
      if (!markBtn.classList.contains('hidden')) {
-          addState(tempBtn, 'hidden');
           addState(staticBtn, 'hidden');
           return;
      }
@@ -452,12 +459,16 @@ function handleMouseOverBoxButton(e) {
 }
 function handleMouseLeaveBoxButton(e) {
      const tempBtn = e.target.querySelector('.container_hover');
-
      const staticBtn = e.target.querySelector('.container_dash');
+     const rotateBtn = e.target.querySelector('.container_rotate');
      const markBtn = e.target.querySelector('.container_mark');
 
+     if (!rotateBtn.classList.contains('hidden')) {
+          addState(staticBtn, 'hidden');
+          return;
+     }
+
      if (!markBtn.classList.contains('hidden')) {
-          addState(tempBtn, 'hidden');
           addState(staticBtn, 'hidden');
           return;
      }
@@ -466,49 +477,43 @@ function handleMouseLeaveBoxButton(e) {
      removeState(staticBtn, 'hidden');
 }
 
-// MARK LABEL
-containerDash.forEach((btn) => {
-     btn.addEventListener('click', handleMarkLabel);
-});
-function handleMarkLabel(e) {
-     const itemCompleted = e.target.closest('.guide_list_cta').dataset.label;
-     const parentEl = e.target.closest('.icon_tab_state');
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/** Label */
+/////////////////////////
+/////////////////////////
+/////////////////////////
+// Label
+function handleMarkLabel(btn) {
+     const dash_icon = btn.querySelector('.open_dash');
+     const mark_icon = btn.querySelector('.open_mark');
+     const hover_icon = btn.querySelector('.open_hover');
+     const blink_icon = btn.querySelector('.open_blink');
+     const rotate_icon = btn.querySelector('.open_rotate');
 
-     const dash_icon = parentEl.querySelector('.open_dash');
-     const mark_icon = parentEl.querySelector('.open_mark');
-     const hover_icon = parentEl.querySelector('.open_hover');
-     const blink_icon = parentEl.querySelector('.open_blink');
-     const rotate_icon = parentEl.querySelector('.open_rotate');
-
-     const tab = document.querySelector(`[data-tab="${itemCompleted}"]`);
-     const container_dash = tab.querySelector('.container_dash');
-     const container_mark = tab.querySelector('.container_mark');
+     const itemCompleted = btn.closest('.guide_list_cta').dataset.label;
+     const container = document.querySelector(`[data-tab="${itemCompleted}"]`);
+     const container_dash = container.querySelector('.container_dash');
+     const container_mark = container.querySelector('.container_mark');
 
      addState(dash_icon, 'hidden');
+     addState(mark_icon, 'hidden');
      addState(hover_icon, 'hidden');
-     removeState(blink_icon, 'hidden');
+     addState(blink_icon, 'hidden');
+
+     removeState(rotate_icon, 'hidden');
+     addState(rotate_icon, 'rotate');
 
      setTimeout(() => {
-          addState(blink_icon, 'hidden');
-          addState(hover_icon, 'hidden');
-          addState(dash_icon, 'hidden');
-
-          removeState(rotate_icon, 'hidden');
-
-          addState(rotate_icon, 'rotate');
-     }, 300);
-
-     setTimeout(() => {
-          addState(blink_icon, 'hidden');
           addState(rotate_icon, 'hidden');
+
+          // update
+          removeState(mark_icon, 'hidden');
 
           // update container buttons
           addState(container_dash, 'hidden');
           removeState(container_mark, 'hidden');
-
-          // update
-          addState(dash_icon, 'hidden');
-          removeState(mark_icon, 'hidden');
 
           checkedTabs.push(itemCompleted);
 
@@ -522,35 +527,38 @@ function handleMarkLabel(e) {
           executeProgress();
      }, IS_LOADING);
 }
-
 // UNMARK LABEL
-completeBtns.forEach((btn) => btn.addEventListener('click', handleUnMarkLabel));
-function handleUnMarkLabel(e) {
-     const itemCompleted = e.target.closest('.guide_list_cta').dataset.label;
-     const parentEl = e.target.closest('.icon_tab_state');
-     const dash_icon = parentEl.querySelector('.open_dash');
-     const mark_icon = parentEl.querySelector('.open_mark');
-     const rotate_icon = parentEl.querySelector('.open_rotate');
+function handleUnMarkLabel(btn) {
+     const dash_icon = btn.querySelector('.open_dash');
+     const mark_icon = btn.querySelector('.open_mark');
+     const hover_icon = btn.querySelector('.open_hover');
+     const blink_icon = btn.querySelector('.open_blink');
+     const rotate_icon = btn.querySelector('.open_rotate');
+
+     const itemCompleted = btn.closest('.guide_list_cta').dataset.label;
      const container = document.querySelector(`[data-tab="${itemCompleted}"]`);
      const container_dash = container.querySelector('.container_dash');
      const container_mark = container.querySelector('.container_mark');
 
-     // update container buttons
+     // hidden all button except rotate btn
+     addState(dash_icon, 'hidden');
+     addState(hover_icon, 'hidden');
+     addState(blink_icon, 'hidden');
      addState(mark_icon, 'hidden');
-     removeState(rotate_icon, 'hidden');
 
+     removeState(rotate_icon, 'hidden');
      addState(rotate_icon, 'rotate');
 
      setTimeout(() => {
+          // hidden rotate btn
+          addState(rotate_icon, 'hidden');
+
+          // remove dash icon hidden
+          removeState(dash_icon, 'hidden');
+
           // update container buttons
           removeState(container_dash, 'hidden');
           addState(container_mark, 'hidden');
-
-          addState(rotate_icon, 'hidden');
-
-          // // update
-          // removeState(dash_icon, 'hidden');
-          // addState(mark_icon, 'hidden');
 
           const newCheckedTab = checkedTabs.filter(
                (tab) => tab !== itemCompleted
@@ -572,6 +580,22 @@ function handleUnMarkLabel(e) {
      }, IS_LOADING);
 }
 
+labelBtn.forEach((btn) => {
+     btn.addEventListener('click', function (e) {
+          if (!btn.querySelector('.open_mark').classList.contains('hidden')) {
+               return handleUnMarkLabel(btn);
+          }
+
+          handleMarkLabel(btn);
+     });
+});
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/** Container */
+/////////////////////////
+/////////////////////////
+/////////////////////////
 // MARK AS NOT DONE
 function handleMarkAsNotDone(btn, itemCompleted) {
      const dash_icon = btn.querySelector('.container_dash');
@@ -633,7 +657,6 @@ function handleMarkAsNotDone(btn, itemCompleted) {
           executeProgress();
      }, IS_LOADING);
 }
-
 // MARK DONE HANDLER
 function handleMarkAsDone(btn, itemCompleted) {
      const dash_icon = btn.querySelector('.container_dash');
@@ -645,64 +668,65 @@ function handleMarkAsDone(btn, itemCompleted) {
      const label = document.querySelector(`[data-label="${itemCompleted}"]`);
      const open_dash = label.querySelector('.open_dash');
      const open_mark = label.querySelector('.open_mark');
+     const open_hover = label.querySelector('.open_hover');
 
-     removeState(blink_icon, 'hidden');
+     addState(blink_icon, 'hidden');
      addState(hover_icon, 'hidden');
      addState(dash_icon, 'hidden');
+     addState(mark_icon, 'hidden');
+
+     removeState(rotate_icon, 'hidden');
+     addState(rotate_icon, 'rotate');
 
      // screen reader
      checkLiveBtn.ariaLabel = 'Loading. Please wait...';
 
      setTimeout(() => {
-          addState(blink_icon, 'hidden');
-          addState(hover_icon, 'hidden');
-          addState(dash_icon, 'hidden');
+          addState(rotate_icon, 'hidden');
+          addState(open_hover, 'hidden');
+          addState(open_dash, 'hidden');
+          removeState(open_mark, 'hidden');
 
-          removeState(rotate_icon, 'hidden');
-
-          addState(rotate_icon, 'rotate');
-     }, 300);
-
-     setTimeout(() => {
           // screen reader
           btn.ariaLabel = btn.ariaLabel.replace('as done', 'as not done');
 
           checkLiveBtn.ariaLabel = 'Marked successful..';
 
-          addState(rotate_icon, 'hidden');
-          addState(blink_icon, 'hidden');
-
-          // update container buttons
-          addState(open_dash, 'hidden');
-          removeState(open_mark, 'hidden');
-
           // update
-          addState(hover_icon, 'hidden');
-          addState(dash_icon, 'hidden');
           removeState(mark_icon, 'hidden');
 
           checkedTabs.push(itemCompleted);
 
-          setTimeout(() => {
-               closeTab(itemCompleted);
+          closeTab(itemCompleted);
 
-               if (currentTab === '4') {
-                    // update progress
-                    executeProgress();
-                    openTab(4);
-                    return;
-               }
+          if (currentTab === '4') {
+               // update progress
+               executeProgress();
+               openTab(4);
+               return;
+          }
 
-               currentTab = `${Number(itemCompleted) + 1}`;
+          currentTab = `${Number(itemCompleted) + 1}`;
 
-               openTab(currentTab);
-          }, CLOSE_AND_OPENING_TAB);
+          openTab(currentTab);
 
           // update progress
           executeProgress();
      }, IS_LOADING);
-}
 
+     // select next tab button and focus it
+     setTimeout(() => {
+          const nextTabBtn = document
+               .querySelector(`[data-tab="${currentTab}"]`)
+               .querySelector('.mark_done');
+
+          if (nextTabBtn) {
+               nextTabBtn.focus();
+          } else {
+               console.error('Next tab button not found');
+          }
+     }, 1100);
+}
 markAsDoneContainerButton.forEach((btn) => {
      btn.addEventListener('click', function (e) {
           const itemCompleted = btn.closest('.guide_list_tab').dataset.tab;
@@ -718,19 +742,22 @@ markAsDoneContainerButton.forEach((btn) => {
      });
 });
 
+//////////////
+/////////
+//////
+////
+//
 // EVENT ON EACH LARGE BROWN BUTTONS
 tabLargeButtons.forEach((btn) =>
      btn.addEventListener('mouseenter', function (e) {
           addState(e.target, 'large_button_hover');
      })
 );
-
 tabLargeButtons.forEach((btn) =>
      btn.addEventListener('mouseleave', function (e) {
           removeState(e.target, 'large_button_hover');
      })
 );
-
 tabLargeButtons.forEach((btn) =>
      btn.addEventListener('focus', function (e) {
           addState(e.target, 'large_button_focus');
