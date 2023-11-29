@@ -10,7 +10,7 @@ Hackathon Front challenge which focuses on frontend improvement by implementing 
 
 ### Javascript modern features used
 
--    [Closest method](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest): The closest() method of the Element interface traverses the element and its parents until it finds a node that matches the specified CSS selector.
+-    (Closest method)[https://developer.mozilla.org/en-US/docs/Web/API/Element/closest]: The closest() method of the Element interface traverses the element and its parents until it finds a node that matches the specified CSS selector.
 
 ```
   function handleLabelClickedOpen(e) {
