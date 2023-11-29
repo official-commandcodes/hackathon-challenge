@@ -12,51 +12,51 @@ Hackathon Front challenge which focuses on frontend improvement by implementing 
 
 -    (Closest method)[https://developer.mozilla.org/en-US/docs/Web/API/Element/closest]: The closest() method of the Element interface traverses the element and its parents until it finds a node that matches the specified CSS selector.
 
-```
-  function handleLabelClickedOpen(e) {
-          const dataset = e.target.closest('.guide_list_cta').dataset.label;
-          const labelContainer = e.target.closest('.guide_list_cta');
-          const targetTab = document.querySelector(`[data-tab="${dataset}"]`);
+```js
+function handleLabelClickedOpen(e) {
+     const dataset = e.target.closest('.guide_list_cta').dataset.label;
+     const labelContainer = e.target.closest('.guide_list_cta');
+     const targetTab = document.querySelector(`[data-tab="${dataset}"]`);
 
-          // show parent
-          removeState(targetTab, HIDDEN_STATE);
+     // show parent
+     removeState(targetTab, HIDDEN_STATE);
 
-          // hide child parent
-          addState(labelContainer, HIDDEN_STATE);
+     // hide child parent
+     addState(labelContainer, HIDDEN_STATE);
 
-          // close previouse tab
-          closeTab(currentTab);
+     // close previouse tab
+     closeTab(currentTab);
 
-          currentTab = Number(dataset);
+     currentTab = Number(dataset);
 
-          setTimeout(() => {
-               const actionSelectedContainerButton = document
-                    .querySelector(`[data-tab="${dataset}"]`)
-                    .querySelector('.mark_done');
+     setTimeout(() => {
+          const actionSelectedContainerButton = document
+               .querySelector(`[data-tab="${dataset}"]`)
+               .querySelector('.mark_done');
 
-               actionSelectedContainerButton.focus();
-          }, 500);
-     }
+          actionSelectedContainerButton.focus();
+     }, 500);
+}
 ```
 
 -    Different ways of selecting dom element:
 
-```
- // Selecting by Attribute:
- const targetTab = document.querySelector(`[data-tab="${dataset}"]`);
+```js
+// Selecting by Attribute:
+const targetTab = document.querySelector(`[data-tab="${dataset}"]`);
 ```
 
 -    Creating reusable functions and variables
 
-```
-   // GLOBAL FUNCTIONS
-     function addState(component, className) {
-          component.classList.add(className);
-     }
-     function removeState(component, className) {
-          component.classList.remove(className);
-     }
-     const HIDDEN_STATE = 'hidden';
+```js
+// GLOBAL FUNCTIONS
+function addState(component, className) {
+     component.classList.add(className);
+}
+function removeState(component, className) {
+     component.classList.remove(className);
+}
+const HIDDEN_STATE = 'hidden';
 ```
 
 ##### clone

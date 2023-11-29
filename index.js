@@ -24,11 +24,11 @@ const app = function () {
      let currentFocusItem = 0;
 
      // GLOBAL FUNCTIONS
-     function addState(component, className) {
-          component.classList.add(className);
+     function addState(element, className) {
+          element.classList.add(className);
      }
-     function removeState(component, className) {
-          component.classList.remove(className);
+     function removeState(element, className) {
+          element.classList.remove(className);
      }
      const HIDDEN_STATE = 'hidden';
 
